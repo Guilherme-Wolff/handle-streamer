@@ -1,0 +1,17 @@
+{
+    "jsc": {
+      "target": "es2020",
+      "parser": {
+        "syntax": "typescript",
+        "decorators": true  // Ativa o suporte para decorators
+      },
+      "transform": {
+        "legacyDecorator": true, // Necessário para decoradores tradicionais como @injectable
+        "decoratorMetadata": true // Gera metadados para decoradores, útil para injeção de dependência
+      }
+    },
+    "module": {
+      "type": "es6" // Gera módulos ES6 (import/export)
+    }
+  }
+  

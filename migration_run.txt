@@ -1,0 +1,3 @@
+npx typeorm migration:run --dataSource ./src/api/application/config
+
+npx typeorm migration:run --config ./src/api/application/config/datasource.ts

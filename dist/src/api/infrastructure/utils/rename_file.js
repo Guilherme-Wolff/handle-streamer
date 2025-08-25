@@ -1,0 +1,1 @@
+import fs from"fs";import*as path from"path";export const renameLiveFile=r=>{const p=`${process.cwd()}/src/api/infrastructure/lives_saved`,s=`${r}.mp4.part`,t=`${r}.mp4`,a=path.join(p,s),e=path.join(p,t);fs.rename(a,e,(r=>{}))};

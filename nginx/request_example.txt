@@ -1,0 +1,1 @@
+curl http://localhost/api/v1/users

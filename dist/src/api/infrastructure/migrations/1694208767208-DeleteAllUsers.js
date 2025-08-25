@@ -1,0 +1,1 @@
+export class DeleteAllUsers1694208767208{async up(s){await s.query("DELETE FROM users")}async down(s){}}

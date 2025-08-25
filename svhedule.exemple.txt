@@ -1,0 +1,20 @@
+//npm install typeorm cron
+
+import { createConnection } from 'typeorm';
+import cron from 'node-cron';
+
+async function scheduleAction() {
+  // Conecte-se ao banco de dados usando o TypeORM
+  const connection = await createConnection();
+
+  // Defina a ação que deseja agendar
+  const action = async () => {
+    // Coloque aqui o código da ação que deseja executar
+    console.log('Ação agendada ocorreu!');
+  };
+
+  // Agende a ação para ocorrer 1 minuto no futuro
+  cron.schedule('*/1 * * * *', action);
+}
+
+scheduleAction();

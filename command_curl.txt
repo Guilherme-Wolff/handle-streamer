@@ -1,0 +1,2 @@
+getById:
+curl -X GET -H "Content-Type: application/json" -d @data.json http://localhost:5000/api/v1/users/userinfo

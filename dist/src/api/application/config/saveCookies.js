@@ -1,0 +1,1 @@
+import*as fs from"fs";import path from"path";import{COOKIE_PATH}from"../../../../root_path.js";export const saveCookies=o=>{const t=path.join(COOKIE_PATH);fs.writeFile(t,o,"utf8",(o=>{}))};

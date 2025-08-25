@@ -1,0 +1,1 @@
+import{validateJWT}from"../helpers/JWT.js";export async function AuthMiddleware(t,e,a){const i=t.header("Authorization");if(!i)return e.status(401).json({message:"Authentication token not provided"});if(!0!==(await validateJWT(i)).isValid)return e.status(403).json({message:"Invalid Token"});a()}

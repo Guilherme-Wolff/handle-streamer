@@ -1,0 +1,1 @@
+export const BUNKR_ALIAS={15:"Pizza",16:"Burger",17:"Nugget",18:"Fries",19:"Meatballs",20:"Milkshake",21:"Kebab",22:"Taquito",23:"Nachos",24:"Ramen",25:"Wiener"};

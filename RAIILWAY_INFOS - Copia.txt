@@ -1,0 +1,19 @@
+URL PRECESA DO /api/v1/
+#
+build custom:
+npm run build
+start custom:
+npm run start
+=
+precisa do package-lock.json
+vem do npm install
+
+TSCONFIG:
+"module": "ESNext",
+
+ENV.
+PORT=8080
+===
+CMD ==  CMD ==  CMD ==  
+deploy:
+railway up

@@ -1,0 +1,16 @@
+{
+    "type": "postgres",
+    "host": "postgresql-142563-0.cloudclusters.net",
+    "port": 19667,
+    "username": "guilherme",
+    "password": "123456789",
+    "database": "teste",
+    "synchronize": false,
+    "logging": true,
+    "entities": ["src/api/domain/entities/**/*.ts"],
+    "migrations": ["src/api/infrastructure/migrations/**/*.ts"],
+    "cli": {
+        "entitiesDir": "src/api/domain/entities/**/*.ts",
+        "migrationsDir": "src/api/infrastructure/migrations/**/*.ts"
+    }
+}

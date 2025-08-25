@@ -1,0 +1,15 @@
+sudo apt install unzip
+bun install zlib
+
+1:
+sudo vim ./node_modules/tsyringe/package.json
+2:
+ADICIONE EM CIMA DO MAIN:
+"exports": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm2015/index.js"
+   },
+
+
+
+

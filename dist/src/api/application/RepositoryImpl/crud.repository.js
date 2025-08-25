@@ -1,0 +1,1 @@
+import"reflect-metadata";import{dataSource}from"../config/datasource.js";export class CrudRepository{async find(r,a){try{return await dataSource.manager.find(r,a)}catch(r){throw new Error(r.message)}}async findById(r,a){try{return await dataSource.manager.findOneBy(r,{id:a})}catch(r){throw new Error(r.message)}}}

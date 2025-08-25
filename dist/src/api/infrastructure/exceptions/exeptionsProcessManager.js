@@ -1,0 +1,1 @@
+let ERRO_MESSAGE_LIVE_EXIST="live is already being saved";class customError extends Error{mensagem="";status=5151;constructor(r,s){super(r),this.mensagem=r,this.status=s,Error.captureStackTrace(this,customError)}}export const Error_Live_exists=new customError(ERRO_MESSAGE_LIVE_EXIST,5151);

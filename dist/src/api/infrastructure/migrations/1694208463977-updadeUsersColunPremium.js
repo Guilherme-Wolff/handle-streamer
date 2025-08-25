@@ -1,0 +1,1 @@
+export class UpdadeUsersColunPremium1694208463977{async up(e){await e.query("ALTER TABLE users RENAME COLUMN role TO premium")}async down(e){await e.query("ALTER TABLE users RENAME COLUMN role TO premium")}}

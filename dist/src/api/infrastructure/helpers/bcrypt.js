@@ -1,0 +1,1 @@
+import{compare,hash}from"bcrypt";export async function generateHash(a){return await hash(a,10)}export async function compareHash(a,r){return await compare(a,r)}export async function hashPassword(a,r=8){return await hash(a,r)}export async function validateUser(a,r){return await compare(a,r)}

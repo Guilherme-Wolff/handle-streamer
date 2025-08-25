@@ -1,0 +1,1 @@
+import"reflect-metadata";import http from"http";import{App}from"./src/app.js";const port=process.env.PORT||5001;export const server=http.createServer(App);server.listen(Number(port),(()=>{}));

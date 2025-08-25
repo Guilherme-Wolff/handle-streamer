@@ -1,0 +1,1 @@
+export var EntityType;!function(t){t.ORGANIZATION="Organization",t.CHARGEPOINT="Chargepoint"}(EntityType||(EntityType={}));

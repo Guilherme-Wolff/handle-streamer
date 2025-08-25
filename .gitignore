@@ -1,0 +1,13 @@
+node_modules
+
+# Ignore todos os arquivos nas pastas especificadas
+src/api/infrastructure/thumbnails/*
+src/api/infrastructure/streams/*
+src/api/infrastructure/responsesUploads/*
+
+# Não ignore as próprias pastas
+!src/api/infrastructure/thumbnails/.gitkeep
+!src/api/infrastructure/streams/.gitkeep
+!src/api/infrastructure/responsesUploads/.gitkeep
+# Local Netlify folder
+.netlify

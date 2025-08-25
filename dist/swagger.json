@@ -1,0 +1,47 @@
+{
+    "info": {
+        "title": "Saver Streams",
+        "license": {
+            "name": "Schedule Streams",
+            "url": "http://localhost:5001/api/v1"
+        },
+        "version": "1.0.0",
+        "description": "manager of lives"
+    },
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "http://localhost:5001/api/v1"
+        }
+    ],
+    "paths": {
+        "/tiktok/addlive": {
+            "post": {
+                "summary": "save a live",
+                "operationId": "",
+                "responses": {
+                    "200": {
+                        "description": "Sucess"
+                    },
+                    "401": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/tiktok/stopsaving/": {
+            "post": {
+                "summary": "stop save a live #deprecated#",
+                "operationId": "",
+                "responses": {
+                    "200": {
+                        "description": "Sucesso"
+                    },
+                    "401": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        }
+    }
+}

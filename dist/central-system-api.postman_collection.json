@@ -1,0 +1,422 @@
+{
+    "info": {
+        "_postman_id": "b8c9d646-0b09-4586-b120-d29de7185f58",
+        "name": "central-system-api",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Organization",
+            "item": [
+                {
+                    "name": "http://localhost:5000/api/save",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"test_name\",\r\n    \"legalEntity\": \"social security SL\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/organization/upsert",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "organization",
+                                "upsert"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/organization/findAll",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"entity\": \"Organization\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/organization/findAll",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "organization",
+                                "findAll"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/organization/findOne",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"entity\": \"Organization\",\r\n    \"id\": \"1820be7e-a36f-4a9b-9528-1e822cee7969\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/organization/findOne",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "organization",
+                                "findOne"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/organization/findByName",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"entity\": \"Organization\",\r\n    \"name\": \"test_name\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/organization/findByName",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "organization",
+                                "findByName"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/organization/deleteById",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n        \"id\": \"0050c7fe-c1f9-4074-83da-e0d5ceb1a95c\",\r\n        \"name\": \"test_name\",\r\n        \"legalEntity\": \"something\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/organization/deleteById",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "organization",
+                                "deleteById"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/organization/remove",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\r\n    {\r\n        \"id\": \"c767fa8e-738f-4bf5-8c4b-64a70b05bf26\",\r\n        \"name\": \"mi_empresa\",\r\n        \"legalEntity\": \"razón social\"\r\n    },\r\n    {\r\n        \"id\": \"c767fa8e-738f-4bf5-8c4b-64a70b05bf36\",\r\n        \"name\": \"mi_empresa\",\r\n        \"legalEntity\": \"razón social\"\r\n    },\r\n    {\r\n        \"id\": \"c767fa8e-738f-4bf5-8c4b-64a70b05bf46\",\r\n        \"name\": \"mi_empresa\",\r\n        \"legalEntity\": \"razón social\"\r\n    },\r\n    {\r\n        \"id\": \"c767fa8e-738f-4bf5-8c4b-64a70b05bf56\",\r\n        \"name\": \"mi_empresa\",\r\n        \"legalEntity\": \"razón social\"\r\n    },\r\n    {\r\n        \"id\": \"c767fa8e-738f-4bf5-8c4b-64a70b05bf66\",\r\n        \"name\": \"mi_empresa\",\r\n        \"legalEntity\": \"razón social\"\r\n    }\r\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/organization/remove",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "organization",
+                                "remove"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Chargepoint",
+            "item": [
+                {
+                    "name": "http://localhost:5000/api/v1/chargepoint/upsert",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"identity\": \"DID1234\",\r\n    \"cpo\": \"47656d2c-c217-44a2-a47a-2a3502d110e0\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/chargepoint/upsert",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "chargepoint",
+                                "upsert"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/chargepoint/findAll",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"entity\": \"Chargepoint\",\r\n    \"cpo\": \"47656d2c-c217-44a2-a47a-2a3502d110e0\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/chargepoint/findAll",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "chargepoint",
+                                "findAll"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/chargepoint/findOne",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"id\": \"3ee961f6-d8a2-4611-a90a-e4999755b1f7\",\r\n    \"entity\": \"Chargepoint\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/chargepoint/findOne",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "chargepoint",
+                                "findOne"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/chargepoint/findByCpo",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"cpo\": \"47656d2c-c217-44a2-a47a-2a3502d110e0\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/chargepoint/findByCpo",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "chargepoint",
+                                "findByCpo"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/chargepoint/findByIdentity",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"identity\": \"DID1234\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/chargepoint/findByIdentity",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "chargepoint",
+                                "findByIdentity"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/chargepoint/deleteById",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n        \"id\": \"86d97799-5d3e-4ec6-8014-b3ea8008e3bc\",\r\n        \"identity\": \"DID1234\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/chargepoint/deleteById",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "chargepoint",
+                                "deleteById"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:5000/api/v1/chargepoint/remove",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\r\n    {\r\n        \"id\": \"cd73fd49-92b5-4920-9b7a-e266c378b9ac\",\r\n        \"identity\": \"DID1234\",\r\n        \"cpo\": {\r\n            \"id\": \"47656d2c-c217-44a2-a47a-2a3502d110e0\",\r\n            \"name\": \"test_name\",\r\n            \"legalEntity\": \"something\"\r\n        }\r\n    },\r\n    {\r\n        \"id\": \"75c17997-f540-415e-b7ab-ce2aefe35f73\",\r\n        \"identity\": \"DID1234\",\r\n        \"cpo\": {\r\n            \"id\": \"47656d2c-c217-44a2-a47a-2a3502d110e0\",\r\n            \"name\": \"test_name\",\r\n            \"legalEntity\": \"something\"\r\n        }\r\n    }\r\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/chargepoint/remove",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "chargepoint",
+                                "remove"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

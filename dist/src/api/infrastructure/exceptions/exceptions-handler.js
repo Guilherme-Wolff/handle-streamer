@@ -1,0 +1,1 @@
+export default class ExceptionHandler extends Error{statusCode;message;constructor(s,e){super(),this.statusCode=s,this.message=e}}

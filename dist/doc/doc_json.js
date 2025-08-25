@@ -1,0 +1,1 @@
+import*as fs from"fs";import swaggerUI from"swagger-ui-express";export async function readJSONDoc(e){return new Promise(((s,r)=>{fs.readFile(e,"utf8",((e,o)=>{if(e)r(e);else try{const e=JSON.parse(o);s(e)}catch(e){r(e)}}))}))}export async function useJsonDoc(e,s){const r=await readJSONDoc(e);return s.use("/api-docs",swaggerUI.serve,swaggerUI.setup(r)),r}

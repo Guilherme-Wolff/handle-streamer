@@ -1,0 +1,1 @@
+export var HttpStatus;!function(t){t[t.BADREQUEST=400]="BADREQUEST",t[t.NOTFOUND=404]="NOTFOUND"}(HttpStatus||(HttpStatus={}));
