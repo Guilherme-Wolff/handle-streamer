@@ -502,9 +502,9 @@ export class LivesManager {
         //const total_stramers = await this.getTotalStreamers()
         //se o streamer verificado no central como falso teambem estiver no 
         //set de onlines fazer update no db para online=false
-        /*if (this.updateStreamersOFFLINE) {
+        if (this.updateStreamersOFFLINE) {
           this.StreamersService.updateOffline(this.updateStreamersOFFLINE)
-        }*/
+        }
         if (this.updateStreamersONLINE) {
           this.StreamersService.updateOnline(this.updateStreamersONLINE)
         }else{

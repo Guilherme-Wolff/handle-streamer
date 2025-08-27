@@ -17,15 +17,9 @@ RUN npm install -g pm2
 
 RUN apk update
 
-RUN apk update && \
-    apk add --no-cache curl ffmpeg python3
 
 RUN mkdir -p /usr/bin/
 # Baixa o yt-dlp, dá permissão e lista o arquivo
-RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/bin/yt-dlp \
-    && sudo chmod a+rx /usr/bin/yt-dlp \
-    && ls -l /usr/bin/yt-dlp 
-
 # Define o usuário para rodar o contêiner (não root)
 USER node
 

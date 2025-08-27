@@ -270,6 +270,93 @@ export class StreamersRepository
 
   async updateOnline(online: Process[]): Promise<UpdateResult> {
     try {
+        if (!Array.isArray(online) || online.length === 0) {
+            return { affected: 0, raw: [], generatedMaps: [] };
+        }
+
+        // Validação
+        const invalid: Array<{ index: number; reasons: string[]; item: any }> = [];
+        const normalized = online.map((item, index) => {
+            const id = item?.streamer_id?.toString().trim();
+            const rawUrl = (item?.urlM3U8 ?? item?.urlM3U8 ?? '') as string;
+            const url = rawUrl.trim();
+            const title = (item?.tittle ?? '') as string; // Captura o title
+
+            const reasons: string[] = [];
+            if (!id || !isUuid(id)) reasons.push('streamer_id inválido (não é UUID)');
+            if (!url) reasons.push('urlM3U8 vazia/ausente');
+            // Opcional: Adicionar validação para title, se necessário
+            if (!title) reasons.push('title vazio/ausente');
+
+            if (reasons.length) invalid.push({ index, reasons, item });
+
+            return { streamer_id: id, urlM3U8: url, curr_title: title }; // Inclui curr_title
+        });
+
+        if (invalid.length) {
+            console.warn('[updateOnline] Itens inválidos ignorados:', invalid);
+        }
+
+        const valid = normalized.filter((_, i) => !invalid.some(v => v.index === i));
+        if (valid.length === 0) {
+            return { affected: 0, raw: [], generatedMaps: [] };
+        }
+
+        // Dedup por UUID
+        const byId = new Map<string, { urlM3U8: string; curr_title: string }>();
+        for (const { streamer_id, urlM3U8, curr_title } of valid) {
+            if (!byId.has(streamer_id)) byId.set(streamer_id, { urlM3U8, curr_title });
+        }
+
+        const ids = Array.from(byId.keys());
+        const urlCaseExpr =
+            'CASE ' +
+            ids.map((_, i) => `WHEN id = :id${i} THEN :url${i}`).join(' ') +
+            ' ELSE mainurlm3u8 END';
+        const titleCaseExpr =
+            'CASE ' +
+            ids.map((_, i) => `WHEN id = :id${i} THEN :title${i}`).join(' ') +
+            ' ELSE curr_title END';
+
+        // Monta parâmetros
+        const params: Record<string, any> = {};
+        ids.forEach((id, i) => {
+            params[`id${i}`] = id;
+            params[`url${i}`] = byId.get(id)!.urlM3U8;
+            params[`title${i}`] = byId.get(id)!.curr_title;
+        });
+
+        const qb = dataSource.manager
+            .createQueryBuilder()
+            .update('streamers')
+            .set({
+                online: true,
+                mainurlm3u8: () => urlCaseExpr,
+                curr_title: () => titleCaseExpr, // Atualiza a coluna curr_title
+            })
+            .where('id IN (:...ids)', { ids })
+            .setParameters(params);
+
+        const result = await qb.execute();
+
+        return {
+            affected: result.affected ?? 0,
+            raw: result.raw ?? [],
+            generatedMaps: result.generatedMaps ?? [],
+        };
+    } catch (error: any) {
+        console.error('Error updating streamers online status:', {
+            error: error?.message,
+            stack: error?.stack,
+            inputCount: online?.length || 0,
+        });
+        throw new Error(`Failed to update streamers online status: ${error?.message}`);
+    }
+}
+
+  async updateOnline3(online: Process[]): Promise<UpdateResult> {
+    try {
+      online[0].tittle
       if (!Array.isArray(online) || online.length === 0) {
         return { affected: 0, raw: [], generatedMaps: [] };
       }
@@ -401,7 +488,7 @@ export class StreamersRepository
       const update = await dataSource.manager
         .createQueryBuilder()
         .update(Streamers)
-        .set({ online: false, mainurlm3u8: '' })
+        .set({ online: false, mainurlm3u8: '',curr_title:'' })
         .where("name IN (:...names) AND platform IN (:...platforms)", { names, platforms }) // Filtra por nome e plataforma
         //.returning(["name", "platform"]) // Retorna os campos desejados, se necessário
         .execute();

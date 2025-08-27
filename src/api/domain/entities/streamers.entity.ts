@@ -41,6 +41,9 @@ export class Streamers {
   @Column({ nullable: true })
   mainurlm3u8: string;
 
+  @Column({ nullable: true })
+  curr_title: string;
+
   @OneToMany(() => UserStreamerFollow, (follow) => follow.streamer)
   followers_relation: UserStreamerFollow[];
 
